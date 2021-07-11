@@ -103,3 +103,40 @@ function metaData(subjectID) {
   });
 } 
 
+// Gauge chart
+
+// function gaugeChart(subjectID) {
+//   d3.json("samples.json").then((data) => {
+//       var metadata = data.metadata;
+//       // Filter the data for the selected ID number 
+//       var filteredData = metadata.filter(object => object.id == subjectID);
+//       var result = filteredData[0];
+//       var washfreqValue = result.washfreq;
+//       console.log(washfreqValue);
+//       var data = [
+//           {
+//             type: "indicator",
+//             mode: "gauge+number",
+//             value: wfreqValue,
+//             title: { text: "Belly Button Washing Frequency per Week", font: { size: 18 } },
+//             gauge: {
+//               axis: { range: [null, 9], tickwidth: 1, tickcolor: "black" }, // Max value is 9
+//               bar: { color: "gray" },  
+//               bgcolor: "white",
+//               borderwidth: 2,
+//               bordercolor: "gray",
+          
+//         ];
+        
+//         var layout = {
+//           width: 500,
+//           height: 400,
+//           margin: { t: 25, r: 25, l: 25, b: 25 },
+//           paper_bgcolor: "lavender",
+//           font: { color: "rgb(51, 102, 255)", family: "Arial" }
+//         };  
+
+//       Plotly.newPlot("gauge", data, layout);
+  
+// });
+// }
