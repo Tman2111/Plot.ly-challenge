@@ -53,4 +53,35 @@ init ();
   
        Plotly.newPlot('bar',[trace],layout);
     })
-};   
+};  
+
+// Bubble Chart
+
+function bubbleChart(subjectID){
+  d3.json('samples.json').then((data)=>{
+      var samples=data.samples;
+      var ID= samples.map(row=>row.id).indexOf(subjectID);
+      var otuIds = samples.map(row => row.otu_ids);
+      var otuIds = otuIds[ID];            
+      var sampleValues = samples.map(row => row.sample_values);
+      var sampleValues = sampleValues[ID];
+      var otuLabels = samples.map(row => row.otu_labels);
+      var otuLabels = otuLabels[ID];
+      var trace1 = {
+          x: otuIds,
+          y: sampleValues,
+          text: otuLabels,
+          mode: 'markers',
+          marker: {size: sampleValues, 
+                   color: otuIds
+                  }
+          };                       
+          
+      var layout = { xaxis: {title: 'OTU ID'},
+                     height: 600,
+                     width: 1000,
+                   };
+      Plotly.newPlot('bubble',[trace1], layout);
+  })
+};
+
